@@ -1,4 +1,4 @@
-#TODO APP
+TODO APP
 ---
 
 A simple todo app that you can manage your daily schedule.
