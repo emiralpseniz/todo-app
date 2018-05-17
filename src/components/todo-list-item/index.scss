@@ -1,0 +1,24 @@
+.todo-list-item {
+
+  padding: 10px;
+  border-bottom: 1px solid black;
+
+  &.done {
+    text-decoration: line-through;
+  }
+
+  .todo {
+    display: flex;
+
+    .todo-text {
+      flex: 1;
+      text-align: left;
+    }
+
+    .todo-toolbox {
+      text-align: right;
+    }
+
+  }
+
+}
