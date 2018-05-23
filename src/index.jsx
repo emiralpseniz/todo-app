@@ -135,7 +135,7 @@ class App extends React.Component {
         <Modal 
           isOpen={this.state.isModalOpen} 
           contentLabel='Add New Todo'
-          style={this.modalStyles}
+          style={modalStyles}
           onRequestClose={this.closeModal}
         >
           <AddTodo 
