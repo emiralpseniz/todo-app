@@ -1,0 +1,29 @@
+.add-todo-modal {
+
+  display: flex;
+  flex-direction: column;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+  .add-todo-modal-title {
+    flex: 1;
+    text-align: center;
+
+    h4 {
+      margin: 0 0 10px 0;
+    }
+  }
+
+  .add-todo-text {
+    width: 300px;
+    textarea {
+      overflow: scroll;
+      resize: none;
+    }
+    
+  }
+
+  .add-todo-toolbox {
+    text-align: center;
+    margin-top: 10px;
+  }
+}
