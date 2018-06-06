@@ -1,19 +1,23 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
 import {TodoListItem} from '../todo-list-item';
+import * as action from '../../actions/todoAction';
 
-export class TodoList extends React.Component {
+class TodoList extends React.Component {
   render() {
+
+    const {markDone, markUndone, remove, items} = this.props;
     return (
       <div className='todo-list'>
         <ul>
-          {this.props.items.map(item => (
+          {items.map(item => (
             <TodoListItem 
               key={item.id} 
               item={item} 
-              markItemAsDone={this.props.markItemAsDone} 
-              markItemAsUndone={this.props.markItemAsUndone}
-              removeItem={this.props.removeItem}
+              markItemAsDone={markDone} 
+              markItemAsUndone={markUndone}
+              removeItem={remove}
             />
             )
           )}
@@ -23,3 +27,19 @@ export class TodoList extends React.Component {
   }
 
 }
+
+function mapStateToProps(state) {
+  return {
+    items: state.items
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    markDone: id => dispatch(action.markDone(id)),
+    markUndone: id => dispatch(action.markUndone(id)),
+    remove: id => dispatch(action.remove(id))
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TodoList);

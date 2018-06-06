@@ -1,6 +1,10 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
-export class AddTodo extends React.Component {
+import {closeModal} from '../../actions/modalAction';
+import {addTodo} from '../../actions/todoAction';
+
+class AddTodo extends React.Component {
   
   constructor(props) {
     super(props);
@@ -13,12 +17,12 @@ export class AddTodo extends React.Component {
 
   addTodo(event) {
     event.preventDefault();
-    this.props.addTodo(this.textArea.value);
+    this.props.add(this.textArea.value);
   }
 
   cancel(event) {
     event.preventDefault();
-    this.props.closeModal();
+    this.props.close();
   }
 
   render() {
@@ -48,3 +52,12 @@ export class AddTodo extends React.Component {
   }
 
 }
+
+function mapDispatchToProps(dispatch){
+  return {
+    add: (text) => dispatch(addTodo(text)),
+    close: () => dispatch(closeModal())
+  };
+}
+
+export default connect(null, mapDispatchToProps)(AddTodo);
